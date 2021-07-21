@@ -70,7 +70,7 @@ Then using generator (netG) perform inference on the model by loading the test i
 To train the model, you would need a GPU otherwise the training time would take more than half a day to a couple days (depending on which patient you trained on).
 
 ## Expected output 
-See the imgs folder for some example segmentations and generated synthetic cell images.
+See example_outputs.png for some example segmentations and generated synthetic cell images.
 
 
 ## Expected run time for demo
