@@ -43,4 +43,25 @@ Then using generator (netG) perform inference on the model by loading the test i
         plt.imshow(seg_show(X_seg.detach().cpu().numpy()[0]))
         plt.show()
 
+        fig=plt.figure(figsize=(16, 10))
+        columns = 7
+        rows = 4
+        print("Fake: ")
+        for i in range(24):
+            fig.add_subplot(rows, columns, i+1)
+            plt.title(channel_names[i])
+            plt.imshow(fake.detach().cpu().numpy()[0][i],cmap='hot', interpolation='nearest')
+        plt.show()
+        
+        
+        fig=plt.figure(figsize=(16, 10))
+        columns = 7
+        rows = 4
+        print("Real: ")
+        for i in range(24):
+            fig.add_subplot(rows, columns, i+1)
+            plt.title(channel_names[i])
+            plt.imshow( X_real[0,i,:,:].detach().cpu().numpy(),cmap='hot', interpolation='nearest')
+        plt.show()
+
 To train the model, you would need a GPU otherwise the training time would take more than half a day to a couple days (depending on which patient you trained on).
