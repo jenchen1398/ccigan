@@ -3,18 +3,21 @@ Cell Cell Interaction Gan: Counterfactual Hypothesis Testing of Tumor Microenvir
 
 [preprint](https://www.biorxiv.org/content/10.1101/2020.10.27.358101v2.abstract)
 
-## Dependencies, Library installation
+# System Requirements
 
+## Software dependencies and operating systems
 pytorch, sklearn, skimage, Pillow, and other required library versions can be found in [pytorch_p36](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-pytorch.html) version in Amazon EC2.
 
 Alternatively, if running on local computer, using Conda, install Python 3.6, pytorch 1.8.1, pillow 8.1.2, opencv 3.4.1, numpy 1.19.2 
 
+We developed the code on UNIX-based operating systems  (mac, Linux) but if the above packages are installed properly, it should also work on Windows.
 
-## Instructions
+## Hardware requirements
+For model inference and training a small dataset (hundreds of images), using pytorch on CPU is enough. However, to reproduce all of our models and experiments, a GPU is needed (we used NVIDIA V100s from AWS p3 instances) for training over thousands of images.	
 
-Raw data can be downloaded from the TNBC MIBI, Lung Cancer t-CyCIF, and Colorectal Cancer CODEX datasets mentioned in the manuscript.
 
-Then raw multiplexed image data can be processed using the data processing iPython notebooks into square semantic image maps and corresponding "real" multiplexed images.
+## Typical install time
+Installing dependencies should take a couple hours.
 
 Training on a 8-12 GB GPU should take a couple hours (5 hours max), depending on the batch size. You can train a CCIGAN model in CCIGAN.ipynb
 
@@ -65,3 +68,18 @@ Then using generator (netG) perform inference on the model by loading the test i
         plt.show()
 
 To train the model, you would need a GPU otherwise the training time would take more than half a day to a couple days (depending on which patient you trained on).
+
+## Expected output 
+See the imgs folder for some example segmentations and generated synthetic cell images.
+
+
+## Expected run time for demo
+To load the model and perform inference on a non-GPU computer should take about 5 minutes.
+
+# Instructions
+
+Raw data can be downloaded from the TNBC MIBI, Lung Cancer t-CyCIF, and Colorectal Cancer CODEX datasets mentioned in the manuscript.
+
+Then raw multiplexed image data can be processed using the data processing iPython notebooks into square semantic image maps and corresponding "real" multiplexed images.
+
+After the images have been processed to same format as the test data, you can create a Dataloader and train your model in CCIGAN.ipynb. Training code for other models that we benchmarked against (SPADE, pix2pix, CycleGAN) are also provided.
