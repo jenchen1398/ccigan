@@ -5,7 +5,7 @@ Cell Cell Interaction Gan: Counterfactual Hypothesis Testing of Tumor Microenvir
 
 pytorch, sklearn, skimage, Pillow, and other required library versions can be found in [pytorch_p36](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-pytorch.html) version in Amazon EC2.
 
-Alternatively, if running on local computer, 
+Alternatively, if running on local computer, using Conda, install Python 3.6, pytorch 1.8.1, pillow 8.1.2, opencv 3.4.1, numpy 1.19.2 
 
 
 ## Instructions
